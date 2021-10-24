@@ -1,73 +1,48 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Book.
- */
 public class Book {
-    private String title;
-    private List<String> paragraphsList;
-    private List<String> imagesList;
-    private List<String> tablesList;
 
-    /**
-     * Instantiates a new Book.
-     *
-     * @param title the title
-     */
+    private String title;
+    private Author author;
+    public static Integer chapterCount=0;
+    public List<Chapter> chapters = new ArrayList<Chapter>();
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void addAuthor(Author author) {
+        this.author = author;
+    }
+
     public Book(String title) {
         this.title = title;
-        this.paragraphsList = new ArrayList<String>();
-        this.imagesList = new ArrayList<String>();
-        this.tablesList = new ArrayList<String>();
     }
 
-    /**
-     * Create new paragraph.
-     *
-     * @param paragraph the paragraph
-     */
-    public void createNewParagraph(String paragraph){
-        this.paragraphsList.add(paragraph);
+    public int createChapter(String text)
+    {
+        Chapter chapter = new Chapter(text,chapterCount);
+        chapterCount++;
+        chapters.add(chapter);
+
+        return chapterCount;
     }
 
-    /**
-     * Create new image.
-     *
-     * @param image the image
-     */
-    public void createNewImage(String image){
-        this.imagesList.add(image);
+    public Chapter getChapter(int index)
+    {
+        return chapters.get(index-1);
     }
 
-    /**
-     * Create new table.
-     *
-     * @param table the table
-     */
-    public void createNewTable(String table){
-        this.tablesList.add(table);
-    }
-
-    /**
-     * Print.
-     */
     public void print() {
-        System.out.println("Title: " + title);
-
-        System.out.print("Paragraphs: ");
-        for(String paragraph: paragraphsList){
-            System.out.print(paragraph + " ");
-        }
-
-        System.out.print("\nTmages: ");
-        for(String image: imagesList){
-            System.out.print(image + " ");
-        }
-
-        System.out.print("\nTables: ");
-        for(String table: tablesList){
-            System.out.print(table + " ");
-        }
     }
 }
