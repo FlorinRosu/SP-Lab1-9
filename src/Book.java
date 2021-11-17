@@ -1,48 +1,31 @@
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class Book {
+public class Book extends Section {
 
     private String title;
-    private Author author;
-    public static Integer chapterCount=0;
-    public List<Chapter> chapters = new ArrayList<Chapter>();
+    ArrayList<Element> elementArrayList = new ArrayList<Element>();
+    ArrayList<Author> authorArrayList = new ArrayList<Author>();
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
+    public Book(String title) {
+        super(title);
         this.title = title;
     }
 
-    public Author getAuthor() {
-        return author;
+    public void addElement(Element element) {
+        this.elementArrayList.add(element);
     }
 
     public void addAuthor(Author author) {
-        this.author = author;
+        this.authorArrayList.add(author);
     }
 
-    public Book(String title) {
-        this.title = title;
-    }
-
-    public int createChapter(String text)
-    {
-        Chapter chapter = new Chapter(text,chapterCount);
-        chapterCount++;
-        chapters.add(chapter);
-
-        return chapterCount;
-    }
-
-    public Chapter getChapter(int index)
-    {
-        return chapters.get(index-1);
-    }
-
+    @Override
     public void print() {
+        System.out.println("Book: " + this.title + "\n");
+        System.out.println("Authors:");
+        this.authorArrayList.forEach(e -> e.print());
+        System.out.println();
+        this.elementArrayList.forEach(e -> e.print());
     }
 }

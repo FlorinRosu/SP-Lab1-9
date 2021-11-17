@@ -1,13 +1,5 @@
-public class Table extends Element{
+public class Table implements Element {
     private String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Table(String name) {
         this.name = name;
@@ -15,5 +7,20 @@ public class Table extends Element{
 
     public void print(){
         System.out.println("Table with Title: " + this.name);
+    }
+
+    @Override
+    public void add(Element element) {
+
+    }
+
+    @Override
+    public void remove(Element element) {
+
+    }
+
+    @Override
+    public Element get(int index) {
+        return null;
     }
 }

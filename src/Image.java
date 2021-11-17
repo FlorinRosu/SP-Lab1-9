@@ -1,20 +1,28 @@
-public class Image extends Element{
+public class Image implements Element {
 
-    private String imageName;
+    private String url;
+
+    public Image(String url) {
+        this.url = url;
+    }
 
     public void print(){
-        System.out.println("Image with name: " + this.imageName);
+        System.out.println("Image with url: " + this.url);
     }
 
-    public String getImageName() {
-        return imageName;
+    @Override
+    public void add(Element element) {
+
     }
 
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
+    @Override
+    public void remove(Element element) {
+
     }
 
-    public Image(String imageName) {
-        this.imageName = imageName;
+    @Override
+    public Element get(int index) {
+        return null;
     }
+
 }
