@@ -12,7 +12,7 @@ public class Book extends Section {
         this.title = title;
     }
 
-    public void addElement(Element element) {
+    public void addContent(Element element) {
         this.elementArrayList.add(element);
     }
 
